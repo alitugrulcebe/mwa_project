@@ -2,7 +2,7 @@
 <mat-form-field>
   <mat-label>Sort By</mat-label>
   <mat-select>
-    <mat-option *ngFor="let ComponySort of componySorts" [value]="ComponySort.value">
+    <mat-option *ngFor="let ComponySort of componySorts" [value]="ComponySort.value" (click) = "clickSort(ComponySort)">
       {{ComponySort.viewValue}}
     </mat-option>
   </mat-select>
@@ -39,5 +39,5 @@
       </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "click(row.componyName)" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "click(row.componyName, row)" ></tr>
   </table>

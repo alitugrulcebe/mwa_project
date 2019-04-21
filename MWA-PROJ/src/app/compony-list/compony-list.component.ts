@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgModule } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 export interface PeriodicElement {
+  componyId: number;
   componyName: String;
   componyWebsite: String;
   componyLoc: String;
@@ -15,16 +17,16 @@ export interface ComponySort {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Google', componyWebsite: 'www.google.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Amazon', componyWebsite: 'www.amazon.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'MicroSoft', componyWebsite: 'www.microsoft.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Tencent', componyWebsite: 'www.tencent.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Huawei', componyWebsite: 'www.huawei.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Alibaba', componyWebsite: 'www.alibaba.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Linkedin', componyWebsite: 'www.linkedin.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Oracle', componyWebsite: 'www.oracle.com', componyLoc: 'LA', componyRate: 5},
-  {componyName: 'Intel', componyWebsite: 'www.intel.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 1, componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 2,componyName: 'Google', componyWebsite: 'www.google.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 3,componyName: 'Amazon', componyWebsite: 'www.amazon.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 4,componyName: 'MicroSoft', componyWebsite: 'www.microsoft.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 5,componyName: 'Tencent', componyWebsite: 'www.tencent.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 6,componyName: 'Huawei', componyWebsite: 'www.huawei.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 7,componyName: 'Alibaba', componyWebsite: 'www.alibaba.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 8,componyName: 'Linkedin', componyWebsite: 'www.linkedin.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 9,componyName: 'Oracle', componyWebsite: 'www.oracle.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 10,componyName: 'Intel', componyWebsite: 'www.intel.com', componyLoc: 'LA', componyRate: 5},
 ];
 
 @Component({
@@ -42,8 +44,13 @@ export class ComponyListComponent implements OnInit {
     {value: 'Compony-Location', viewValue: 'Compony Location'}
   ];
 
-  click(vlaue){
-    alert(vlaue);
+  click(vlaue0: String, value1: Object){
+    alert(vlaue0);
+    console.log(value1)
+  }
+
+  clickSort(ComponySort: String){
+    console.log(ComponySort)
   }
 
   constructor() { }

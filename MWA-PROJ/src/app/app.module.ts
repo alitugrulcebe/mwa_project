@@ -44,11 +44,13 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { ComponyDetailComponent } from './compony-detail/compony-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponyListComponent
+    ComponyListComponent,
+    ComponyDetailComponent
   ],
   imports: [
     BrowserModule,
