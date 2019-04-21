@@ -3,26 +3,28 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
   componyName: String;
   componyWebsite: String;
   componyLoc: String;
+  componyRate: number;
+}
+
+export interface ComponySort {
+  value: string;
+  viewValue: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA'},
+  {componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Google', componyWebsite: 'www.google.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Amazon', componyWebsite: 'www.amazon.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'MicroSoft', componyWebsite: 'www.microsoft.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Tencent', componyWebsite: 'www.tencent.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Huawei', componyWebsite: 'www.huawei.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Alibaba', componyWebsite: 'www.alibaba.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Linkedin', componyWebsite: 'www.linkedin.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Oracle', componyWebsite: 'www.oracle.com', componyLoc: 'LA', componyRate: 5},
+  {componyName: 'Intel', componyWebsite: 'www.intel.com', componyLoc: 'LA', componyRate: 5},
 ];
 
 @Component({
@@ -32,8 +34,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class ComponyListComponent implements OnInit {
-  displayedColumns: string[] = ['componyName', 'componyWebsite', 'componyLoc'];
+  displayedColumns: string[] = ['componyName', 'componyWebsite', 'componyLoc', 'componyRate'];
   dataSource = ELEMENT_DATA;
+
+  componySorts: ComponySort[] = [
+    {value: 'Compony-Rate', viewValue: 'Compony Rate'},
+    {value: 'Compony-Location', viewValue: 'Compony Location'}
+  ];
+
+  click(vlaue){
+    alert(vlaue);
+  }
 
   constructor() { }
 
