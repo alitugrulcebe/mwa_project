@@ -41,6 +41,8 @@ yarn-error.log
 testem.log
 /typings
 /server/access.log
+./server/access.log
+server/access.log
 
 # System Files
 .DS_Store
