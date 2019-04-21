@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-compony-detail',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponyDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private location: Location) { 
+  }
 
   ngOnInit() {
+    this.getComponyDetail()
+  }
+
+  getComponyDetail(): void {
+    const componyId = +this.route.snapshot.paramMap.get('id');
+    console.log('ComponyId:' + componyId)
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
