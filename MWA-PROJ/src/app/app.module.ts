@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ComponyListComponent } from './compony-list/compony-list.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -53,6 +55,7 @@ import { ComponyDetailComponent } from './compony-detail/compony-detail.componen
     ComponyDetailComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
