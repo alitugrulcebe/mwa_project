@@ -16,12 +16,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-
   login(email, password) {
     return this.http.post(environment.server + '/user/login',
       JSON.stringify({email: email, password: password}),
       this.httpOptions);
-
   }
 
   logout() {

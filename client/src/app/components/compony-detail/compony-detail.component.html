@@ -1,0 +1,39 @@
+<div style="padding: 30px;">
+    <p>
+        {{dataSource.componyName}}
+    </p>
+    <p>
+        Website: {{dataSource.componyWebsite}}
+    </p>
+    <p>
+        Location: {{dataSource.componyLoc}}
+    </p>
+    <p>
+        Compony Average Rate: {{dataSource.componyRate}}
+    </p>
+    Rating for the Compony:
+    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+    <hr>
+    <!-- <pre>
+  Selected: <b>{{selected}}</b>
+  Hovered: <b>{{hovered}}</b>
+</pre> -->
+    <p>
+        ZipCode: {{dataSource.componyZipCode}}
+    </p>
+    <p>
+        Number of Employees: {{dataSource.componyEmployeesNum}}
+    </p>
+    <p>
+        Average Salary: {{dataSource.componyAvgSalary}}
+    </p>
+    <p>
+        Price of rent a house{{dataSource.componyRentHousePrice}}
+    </p>
+    <p>
+        <button mat-raised-button [routerLink]="['/livingdetail', dataSource.componyId]">Detail Cost of Living!</button>
+    </p>
+    <p>
+        Compony Description: {{dataSource.componyDesc}}
+    </p>
+</div>

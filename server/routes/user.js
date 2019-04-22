@@ -9,6 +9,8 @@ var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 mongoose.connect(process.env.DATABASE,{ useNewUrlParser: true });
 
 
+
+
 app.post('/signup',function (req,res,next) {
   User.find({email:req.body.email})
     .exec()

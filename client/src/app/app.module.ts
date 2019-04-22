@@ -16,9 +16,18 @@ import {LoginComponentDialog} from "./components/login/login.component.dialog";
 import {RegisterComponentDialog} from "./components/register/register.component.dialog";
 import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
+
+
+import { ComponyDetailComponent } from './components/compony-detail/compony-detail.component';
+import { LivingDetailComponent } from './components/living-detail/living-detail.component';
+import { ComponyListComponent } from './components/compony-list/compony-list.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {CompanyService} from "./services/company.service";
 import {CityService} from "./services/city.service";
 import {NewCompanyComponent} from "./components/newcompany";
+
 
 @NgModule({
   declarations: [
@@ -32,6 +41,11 @@ import {NewCompanyComponent} from "./components/newcompany";
     NewCompanyComponent
   ],
   imports: [
+    
+    NgbModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -40,7 +54,10 @@ import {NewCompanyComponent} from "./components/newcompany";
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
-      {path: '', component:HomeComponent}
+      {path: '', component:HomeComponent},
+      { path: 'componylist', component: ComponyListComponent},
+      { path: 'compony/:id', component: ComponyDetailComponent },
+      { path: 'livingdetail/:id', component: LivingDetailComponent }
     ]),
     LayoutModule,
   ],
