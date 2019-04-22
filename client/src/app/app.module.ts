@@ -16,8 +16,8 @@ import {LoginComponentDialog} from "./components/login/login.component.dialog";
 import {RegisterComponentDialog} from "./components/register/register.component.dialog";
 import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
-
-
+import {CompanyService} from "./services/company.service";
+import {CityService} from "./services/city.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { SearchComponent } from './components/search/search.component';
     LoginComponentDialog,
     RegisterComponentDialog,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,7 @@ import { SearchComponent } from './components/search/search.component';
     LayoutModule,
   ],
   entryComponents: [LoginComponentDialog,RegisterComponentDialog],
-  providers: [AuthService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
+  providers: [AuthService,CompanyService,CityService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 
