@@ -47,12 +47,14 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { ComponyDetailComponent } from './compony-detail/compony-detail.component';
+import { LivingDetailComponent } from './living-detail/living-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComponyListComponent,
-    ComponyDetailComponent
+    ComponyDetailComponent,
+    LivingDetailComponent
   ],
   imports: [
     NgbModule,

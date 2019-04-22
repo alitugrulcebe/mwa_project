@@ -8,7 +8,7 @@
     Location: {{dataSource.componyLoc}}
 </p>
 <p>
-    Compony Rate: {{dataSource.componyRate}}
+    Compony Average Rate: {{dataSource.componyRate}}
 </p>
   Rating for the Compony:
   <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
@@ -20,7 +20,7 @@
 <p>
     ZipCode: {{dataSource.componyZipCode}}
 </p>
-<p>
+<p> 
     Number of Employees: {{dataSource.componyEmployeesNum}}
 </p>
 <p>
@@ -28,6 +28,9 @@
 </p>
 <p>
     Price of rent a house{{dataSource.componyRentHousePrice}}
+</p>
+<p>
+  <button mat-raised-button (click) = "clickGoToCostLiving()">Detail Cost of Living!</button>
 </p>
 <p>
     Compony Description: {{dataSource.componyDesc}}

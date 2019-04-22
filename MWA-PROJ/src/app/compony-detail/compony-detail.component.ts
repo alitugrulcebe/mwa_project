@@ -49,6 +49,10 @@ export class ComponyDetailComponent implements OnInit {
     this.getComponyDetail()
   }
 
+  clickGoToCostLiving() {
+    console.log('clickGoToCostLiving')
+  }
+
   getComponyDetail(): void {
     const componyId = +this.route.snapshot.paramMap.get('id');
     console.log('ComponyId:' + componyId)
