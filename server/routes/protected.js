@@ -9,7 +9,4 @@ var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 mongoose.connect(process.env.DATABASE, {useNewUrlParser: true});
 
 
-
-
-
 module.exports = app;
