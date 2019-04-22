@@ -2,8 +2,7 @@
 const Company = db.Company;
 
 module.exports = {
-    create,
-    delete: _delete
+    create
 };
 
 async function create(companyParam) {
@@ -11,11 +10,8 @@ async function create(companyParam) {
     if (await Company.findOne({ companyname: companyParam.companyname })) {
         throw 'Company "' + companyParam.companyname + '" is already in the database';
     }
-    const compnay = new Company(companyParam);
+    const company = new Company(companyParam);
     // save company
     await company.save();
 }
 
-async function _delete(id) {
-    await User.findByIdAndRemove(id);
-}
