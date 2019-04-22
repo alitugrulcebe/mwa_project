@@ -17,11 +17,16 @@ import {RegisterComponentDialog} from "./components/register/register.component.
 import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
 
+
 import { ComponyDetailComponent } from './components/compony-detail/compony-detail.component';
 import { LivingDetailComponent } from './components/living-detail/living-detail.component';
 import { ComponyListComponent } from './components/compony-list/compony-list.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {CompanyService} from "./services/company.service";
+import {CityService} from "./services/city.service";
+
 
 @NgModule({
   declarations: [
@@ -32,10 +37,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RegisterComponentDialog,
     FooterComponent,
     SearchComponent,
-
-    ComponyListComponent,
-    ComponyDetailComponent,
-    LivingDetailComponent
   ],
   imports: [
     
@@ -59,7 +60,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LayoutModule,
   ],
   entryComponents: [LoginComponentDialog,RegisterComponentDialog],
-  providers: [AuthService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
+  providers: [AuthService,CompanyService,CityService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 
