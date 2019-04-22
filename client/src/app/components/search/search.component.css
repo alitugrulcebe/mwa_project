@@ -1,8 +1,11 @@
-.example-card {
-  max-width: 400px;
+
+mat-form-field.mat-form-field {
+  font-size: 20px;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+mat-card {
+  margin-top: 100px;
+  padding: 50px;
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
 }

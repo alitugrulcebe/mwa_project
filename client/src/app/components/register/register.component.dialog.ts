@@ -47,7 +47,6 @@ export class RegisterComponentDialog implements OnInit {
     };
     this.authService.register(user).subscribe(res => {
       this.authService.login(user.email,user.password).subscribe(res => {
-        debugger;
         console.log(res);
         localStorage.setItem('userData',JSON.stringify({ token:res['token']}));
         this.authService.setLoggedIn(true);

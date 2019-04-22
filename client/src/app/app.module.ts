@@ -8,7 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { LayoutModule } from '@angular/cdk/layout';
 import {MaterialModule} from "./material-module";
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {JWTInterceptor} from "./jwtinterceptor";
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -36,6 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     RouterModule.forRoot([
       {path: '', component:HomeComponent}
     ]),

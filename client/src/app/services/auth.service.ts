@@ -25,7 +25,6 @@ export class AuthService {
   }
 
   logout() {
-    debugger;
     localStorage.removeItem('userData');
     this.authenticated = false;
   }
