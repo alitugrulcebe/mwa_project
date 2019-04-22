@@ -1,16 +1,17 @@
-<p>
+<p style="padding-left: 30px; padding-top: 30px;">
     {{dataSource.cityName}}
 </p>
-<p>
+<p style="padding-left: 30px; padding-top: 10px;">
     {{dataSource.stateName}}
 </p>
-<p>
+<p style="padding-left: 30px; padding-top: 10px;">
     {{dataSource.contryName}}
 </p>
-<p>
+<p style="padding-left: 30px; padding-top: 10px;">
     {{dataSource.zipCode}}
 </p>
 
+<div style="padding: 30px;">
 <table mat-table [dataSource]="dataSource.restaurants" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -32,7 +33,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 
+<div style="padding: 30px;">
 <table mat-table [dataSource]="dataSource.markets" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -54,7 +57,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 
+<div style="padding: 30px;">
 <table mat-table [dataSource]="dataSource.rentPerMonth" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -76,7 +81,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 
+<div style="padding: 30px;">
 <table mat-table [dataSource]="dataSource.buyApartmentPrice" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -98,7 +105,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 
+<div style="padding: 30px;">
 <table mat-table [dataSource]="dataSource.salariesAndFinancing" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -120,3 +129,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
