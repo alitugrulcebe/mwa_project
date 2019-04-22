@@ -4,8 +4,11 @@ mat-form-field.mat-form-field {
 }
 
 mat-card {
-  margin-top: 100px;
-  padding: 50px;
-  width: calc(100% - 70px);
-  height: calc(100% - 70px);
+  margin-top: 200px;
+  width: calc(100% - 700px);
+  height: calc(100% - 300px);
+}
+
+mat-form-field {
+  width: calc(100% - 100px);
 }
