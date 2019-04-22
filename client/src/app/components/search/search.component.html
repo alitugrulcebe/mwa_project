@@ -1,0 +1,16 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div fxLayoutAlign="center center">
+  <mat-card class="example-card">
+    <mat-card-header fxLayoutAlign="center">
+      <h1 class="mat-display-1">Search Companies in Cities</h1>
+    </mat-card-header>
+    <!--    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content fxLayoutGap="20px">
+      <mat-form-field>
+        <input matInput  placeholder="City" formControlName="city">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Search</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+</form>

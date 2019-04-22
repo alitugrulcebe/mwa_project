@@ -1,0 +1,14 @@
+
+mat-form-field.mat-form-field {
+  font-size: 20px;
+}
+
+mat-card {
+  margin-top: 200px;
+  width: calc(100% - 700px);
+  height: calc(100% - 300px);
+}
+
+mat-form-field {
+  width: calc(100% - 100px);
+}

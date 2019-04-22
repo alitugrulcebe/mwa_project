@@ -98,6 +98,7 @@ app.post('/login',(req,res,next) => {
             })
           return res.status(200).json({
             message:'Auth successfull',
+            username:users[0].firstname + " " + users[0].lastname,
             token: token
           });
         }

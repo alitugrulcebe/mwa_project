@@ -1,0 +1,43 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="form-group" formGroupName="userData">
+    <div class="login-form">
+      <h2 class="text-center">Log in</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Email" required="required" formControlName="email">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required="required"
+               formControlName="password">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-block" [disabled]="!myForm.valid">Log in</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!--<mat-card fxFlex>-->
+<!--  <form #myForm="ngForm">-->
+
+<!--    <p style="font-size: 30x;">Space Study</p>-->
+<!--    <p style="font-size: 14px;">Sign In</p>-->
+<!--    <mat-form-field class="form-row">-->
+<!--      <span matTooltip="Username">-->
+<!--          <input matInput placeholder=" " id="username" name="username">-->
+<!--      </span>-->
+<!--      <span matPrefix><mat-icon>person&nbsp;&nbsp;</mat-icon></span>-->
+<!--    </mat-form-field>-->
+<!--    <br/>-->
+<!--    <mat-form-field class="form-row">-->
+<!--      <span matTooltip="Password">-->
+<!--          <input matInput placeholder=" " type="password" id="password">-->
+<!--      </span>-->
+<!--      <span matPrefix><mat-icon>remove_red_eye&nbsp;&nbsp;</mat-icon></span>-->
+<!--    </mat-form-field>-->
+<!--    <br/>-->
+<!--    <button mat-raised-button color="primary" type="submit" mat-raised-button>Login</button>-->
+
+<!--    <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+<!--  </form>-->
+
+<!--</mat-card>-->

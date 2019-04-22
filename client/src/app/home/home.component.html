@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container">
+  <app-header></app-header>
+  <div class="slide-container">
+    <div class="sliders">
+      <ng-container *ngFor="let img of img_list; let i = index">
+        <div class="slider" *ngIf="current == i" @fade>
+          <img class="img" [src]="img">
+        </div>
+      </ng-container>
+      <app-search fxLayoutGap="200px"></app-search>
+    </div>
+  </div>
+
+</mat-sidenav-container>
+
