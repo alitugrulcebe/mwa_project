@@ -61,6 +61,9 @@ const DATA: LivingDetail = {
 
 export class LivingDetailComponent implements OnInit {
 
+  displayedColumns: string[] = ['name', 'price'];
+  dataSource = DATA;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
