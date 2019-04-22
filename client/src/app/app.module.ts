@@ -17,7 +17,11 @@ import {RegisterComponentDialog} from "./components/register/register.component.
 import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
 
+import { ComponyDetailComponent } from './components/compony-detail/compony-detail.component';
+import { LivingDetailComponent } from './components/living-detail/living-detail.component';
+import { ComponyListComponent } from './components/compony-list/compony-list.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,18 @@ import { SearchComponent } from './components/search/search.component';
     LoginComponentDialog,
     RegisterComponentDialog,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+
+    ComponyListComponent,
+    ComponyDetailComponent,
+    LivingDetailComponent
   ],
   imports: [
+    
+    NgbModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -38,7 +51,10 @@ import { SearchComponent } from './components/search/search.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
-      {path: '', component:HomeComponent}
+      {path: '', component:HomeComponent},
+      { path: 'componylist', component: ComponyListComponent},
+      { path: 'compony/:id', component: ComponyDetailComponent },
+      { path: 'livingdetail/:id', component: LivingDetailComponent }
     ]),
     LayoutModule,
   ],
