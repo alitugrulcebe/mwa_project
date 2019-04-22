@@ -18,6 +18,7 @@ import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
 import {CompanyService} from "./services/company.service";
 import {CityService} from "./services/city.service";
+import {NewCompanyComponent} from "./components/newcompany";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {CityService} from "./services/city.service";
     RegisterComponentDialog,
     FooterComponent,
     SearchComponent,
+    NewCompanyComponent
   ],
   imports: [
     BrowserModule,

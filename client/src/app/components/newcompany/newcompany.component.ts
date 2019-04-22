@@ -5,8 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, CompanyService } from '../../services';
 
-@Component({ templateUrl: 'newcompany.component.html' })
-export class newcompanyComponent implements OnInit {
+@Component({ templateUrl: './newcompanycomponent.html' })
+export class NewCompanyComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
