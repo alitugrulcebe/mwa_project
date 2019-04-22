@@ -44,17 +44,13 @@ export class ComponyDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private location: Location) { 
   }
-
+    
   ngOnInit() {
     this.getComponyDetail()
   }
 
-  clickGoToCostLiving() {
-    console.log('clickGoToCostLiving')
-  }
-
   getComponyDetail(): void {
-    const componyId = +this.route.snapshot.paramMap.get('id');
+    const componyId = this.route.snapshot.paramMap.get('id');
     console.log('ComponyId:' + componyId)
   }
 

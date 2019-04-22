@@ -42,12 +42,7 @@ export class ComponyListComponent implements OnInit {
   componySorts: ComponySort[] = [
     {value: 'Compony-Rate', viewValue: 'Compony Rate'},
     {value: 'Compony-Location', viewValue: 'Compony Location'}
-  ];
-
-  click(vlaue0: String, value1: Object){
-    alert(vlaue0);
-    console.log(value1)
-  }
+  ]
 
   clickSort(ComponySort: String){
     console.log(ComponySort)

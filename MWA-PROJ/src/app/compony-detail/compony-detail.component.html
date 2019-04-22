@@ -30,7 +30,7 @@
     Price of rent a house{{dataSource.componyRentHousePrice}}
 </p>
 <p>
-  <button mat-raised-button (click) = "clickGoToCostLiving()">Detail Cost of Living!</button>
+  <button mat-raised-button [routerLink]="['/livingdetail', dataSource.componyId]">Detail Cost of Living!</button>
 </p>
 <p>
     Compony Description: {{dataSource.componyDesc}}
