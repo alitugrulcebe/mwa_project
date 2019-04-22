@@ -17,7 +17,7 @@ export interface ComponySort {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {componyId: 1, componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA', componyRate: 5},
+  {componyId: 1,componyName: 'Facebook', componyWebsite: 'www.facebook.com', componyLoc: 'LA', componyRate: 5},
   {componyId: 2,componyName: 'Google', componyWebsite: 'www.google.com', componyLoc: 'LA', componyRate: 5},
   {componyId: 3,componyName: 'Amazon', componyWebsite: 'www.amazon.com', componyLoc: 'LA', componyRate: 5},
   {componyId: 4,componyName: 'MicroSoft', componyWebsite: 'www.microsoft.com', componyLoc: 'LA', componyRate: 5},
