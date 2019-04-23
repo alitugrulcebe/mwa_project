@@ -37,6 +37,9 @@ import {CityService} from "./services/city.service";
     RegisterComponentDialog,
     FooterComponent,
     SearchComponent,
+    ComponyDetailComponent,
+    LivingDetailComponent,
+    ComponyListComponent
   ],
   imports: [
     
