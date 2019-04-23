@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class CityService {
-
+  city:string;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -22,5 +22,13 @@ export class CityService {
     return this.http.post('/protected/cities',
       JSON.stringify({city: city}),
       this.httpOptions);
+  }
+
+  setSearchText(city: string[] | any | string) {
+    this.city = city;
+  }
+
+  get search(): string {
+    return this.city;
   }
 }

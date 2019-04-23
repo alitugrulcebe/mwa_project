@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <!--      </button>-->
-  <span>RateMyCompany</span>
+  <a [routerLink]="['/']" >RateMyCompany</a>
   <span class="fill-space"></span>
   <mat-menu #appMenu="matMenu" >
     <button mat-menu-item (click)="login()" *ngIf="!authService.isLoggedIn">Login </button>

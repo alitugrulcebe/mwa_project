@@ -1,7 +1,7 @@
 ﻿<h2>Create New Company:</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="companyName">Company</label>
+        <label>Company</label>
         <input type="text" formControlName="companyName" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
         <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
@@ -9,7 +9,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="website">Website</label>
+        <label>Website</label>
         <input type="text" formControlName="website" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
         <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
@@ -17,7 +17,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="location">Location</label>
+        <label>Location</label>
         <input type="text" formControlName="location" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
         <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
@@ -25,7 +25,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="cRate">Company Rate</label>
+        <label>Company Rate</label>
         <input type="number" formControlName="cRate" min="0" max="10" step="1" value="10" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.cRate.errors }" />
         <div *ngIf="submitted && f.cRate.errors" class="invalid-feedback">
@@ -33,7 +33,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="zipcode">ZipCode</label>
+        <label>ZipCode</label>
         <input type="number" formControlName="zipcode" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" />
         <div *ngIf="submitted && f.zipcode.errors" class="invalid-feedback">
@@ -41,7 +41,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="nemployees">Number of Employees</label>
+        <label>Number of Employees</label>
         <input type="number" formControlName="nemployees" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.nemployees.errors }" />
         <div *ngIf="submitted && f.nemployees.errors" class="invalid-feedback">
@@ -49,7 +49,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="avsalary">Average of Salary per year</label>
+        <label>Average of Salary per year</label>
         <input type="number" formControlName="avsalary" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.avsalary.errors }" />
         <div *ngIf="submitted && f.avsalary.errors" class="invalid-feedback">
@@ -57,7 +57,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="rent">Monthly price of rent a house in that place</label>
+        <label>Monthly price of rent a house in that place</label>
         <input type="number" formControlName="rent" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.rent.errors }" />
         <div *ngIf="submitted && f.rent.errors" class="invalid-feedback">
@@ -65,7 +65,7 @@
         </div> -->
     </div>
     <div class="form-group">
-        <label for="cdescription">Company Description</label>
+        <label>Company Description</label>
         <input type="text" formControlName="cdescription" class="form-control" />
         <!-- [ngClass]="{ 'is-invalid': submitted && f.cdescription.errors }" />
         <div *ngIf="submitted && f.cdescription.errors" class="invalid-feedback">

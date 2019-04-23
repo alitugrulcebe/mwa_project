@@ -99,9 +99,7 @@ app.get('/cities', function (req, res, next) {
 });
 
 app.post('/company', function (req, res) {
-  let location = req.body.location;
-  let name = req.body.name;
-  Company.find()
+  Company.find({'location':req.body.city})//.select('+_id')
     .exec()
     .then(companies => {
       res.status(201).json(companies)

@@ -71,8 +71,8 @@ export class LivingDetailComponent implements OnInit {
   }
 
   getLivingDetail() {
-    const componyId = this.route.snapshot.paramMap.get('id');
-    console.log('ComponyId:' + componyId)
+    const companyId = this.route.snapshot.paramMap.get('id');
+    console.log('CompanyId:' + companyId)
   }
 
 }
