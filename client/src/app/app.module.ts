@@ -18,14 +18,15 @@ import {AuthService} from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
 
 
-import { ComponyDetailComponent } from './components/compony-detail/compony-detail.component';
+import { CompanyDetailComponent } from './components/company-detail/company-detail.component';
 import { LivingDetailComponent } from './components/living-detail/living-detail.component';
-import { ComponyListComponent } from './components/compony-list/compony-list.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {CompanyService} from "./services/company.service";
 import {CityService} from "./services/city.service";
+import {NewCompanyComponent} from "./components/newcompany";
+import {AlertService} from "./services";
 
 
 @NgModule({
@@ -37,16 +38,12 @@ import {CityService} from "./services/city.service";
     RegisterComponentDialog,
     FooterComponent,
     SearchComponent,
-    ComponyDetailComponent,
-    LivingDetailComponent,
-    ComponyListComponent
+    NewCompanyComponent,
+    CompanyListComponent,
+    CompanyDetailComponent,
+    LivingDetailComponent
   ],
   imports: [
-    
-    NgbModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -56,14 +53,14 @@ import {CityService} from "./services/city.service";
     FlexLayoutModule,
     RouterModule.forRoot([
       {path: '', component:HomeComponent},
-      { path: 'componylist', component: ComponyListComponent},
-      { path: 'compony/:id', component: ComponyDetailComponent },
+      { path: 'companylist', component: CompanyListComponent},
+      { path: 'company/:id', component: CompanyDetailComponent },
       { path: 'livingdetail/:id', component: LivingDetailComponent }
     ]),
     LayoutModule,
   ],
   entryComponents: [LoginComponentDialog,RegisterComponentDialog],
-  providers: [AuthService,CompanyService,CityService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
+  providers: [AuthService,CompanyService,CityService,AlertService,{provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 

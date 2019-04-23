@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatDialogRef, MatSnackBar} from "@angular/material";
-import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {CompanyService} from "../../services";
 
 @Component({
   selector: 'app-search',
@@ -12,15 +11,16 @@ import {Router} from "@angular/router";
 export class SearchComponent implements OnInit {
   myForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private router:Router) {
+  constructor(private formBuilder:FormBuilder, private companyService:CompanyService,private router:Router) {
     this.myForm = formBuilder.group({
-        'city': ['']
+        'city': ['',Validators.required]
     });
   }
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.myForm.value.city);
+    this.companyService.setSearchText(this.myForm.value.city);
+    this.router.navigate(['/companylist']);
   }
 }
