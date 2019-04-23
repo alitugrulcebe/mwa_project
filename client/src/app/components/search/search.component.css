@@ -4,23 +4,23 @@ mat-form-field.mat-form-field {
 }
 
 mat-form-field {
-  width: calc(100% - 100px);
+  width: calc(100% - 200px);
 }
 
 mat-card {
-  width: calc(100% - 500px);
+  width: calc(100% - 200px);
 
 }
 
-.form-control-borderless {
-  border: none;
-}
+/*.form-control-borderless {*/
+/*  border: none;*/
+/*}*/
 
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
+/*.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {*/
+/*  border: none;*/
+/*  outline: none;*/
+/*  box-shadow: none;*/
+/*}*/
 
 .centered {
   position: fixed;
@@ -29,3 +29,30 @@ mat-card {
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+table {
+  padding: 30px;
+  width: 100%;
+}
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+

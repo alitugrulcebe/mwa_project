@@ -21,9 +21,9 @@ export class CompanyService {
     return this.http.get('/protected/companies',this.httpOptions);
   }
 
-  getCompaniesByLocation(): Observable<Company[]>  {
+  getCompaniesByLocation() {
     debugger;
-    return this.http.post<Company[]>(environment.server + '/protected/company',
+    return this.http.post(environment.server + '/protected/company',
       JSON.stringify({city: this.searchCity}),
       this.httpOptions);
   }
