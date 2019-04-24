@@ -3,6 +3,7 @@ const app = express.Router();
 var mongoose = require('mongoose');
 const City = require('../models/city');
 const Company = require('../models/company');
+const User = require('../models/users');
 require('dotenv').config();
 var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 mongoose.connect(process.env.DATABASE, {useNewUrlParser: true});
@@ -150,11 +151,54 @@ app.post('/createCompany', function (req, res) {
   });
 });
 
-app.post('/companiesbyid', function (req, res) {
-  Company.findOne({_id:req.body.id})
+app.get('/companies/:id', function (req, res) {
+  Company.findOne({_id:req.params.id})
     .exec()
     .then(companies => {
       res.status(201).json(companies);
+    }).catch(err => {
+    res.status(500).json({
+      error: err
+    })
+  });
+});
+
+app.get('/users/:id', function (req, res) {
+  User.findOne({_id:req.params.id})
+    .exec()
+    .then(user => {
+      res.status(201).json(user);
+    }).catch(err => {
+    res.status(500).json({
+      error: err
+    })
+  });
+});
+
+app.put('/user/', function (req, res) {
+  User.findOne({_id:req.body.id})
+    .exec()
+    .then(user => {
+      user.firstname = req.body.firstname;
+      user.lastname = req.body.lastname;
+      user.emai = req.body.email;
+      user.save();
+      res.status(201).json(user);
+    }).catch(err => {
+    res.status(500).json({
+      error: err
+    })
+  });
+});
+
+app.delete('/users/:id', function (req, res) {
+  User.findOne({_id:req.params.id})
+    .exec()
+    .then(user => {
+      user.delete();
+      res.status(201).json({
+        message:'User deleted successfully'
+      });
     }).catch(err => {
     res.status(500).json({
       error: err

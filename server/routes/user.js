@@ -74,7 +74,7 @@ app.delete('/:userid',(req,res,next)=>{
 });
 
 app.post('/login',(req,res,next) => {
-  User.find({email:req.body.email})
+  User.find({email:req.body.email}).select('+_id')
     .exec()
     .then(users => {
       if(users.length < 1) {
@@ -97,9 +97,10 @@ app.post('/login',(req,res,next) => {
             process.env.JWT_KEY,
             {
               expiresIn: "1h"
-            })
+            });
           return res.status(200).json({
             message:'Auth successfull',
+            id: users[0]._id,
             username:users[0].firstname + " " + users[0].lastname,
             token: token,
             admin:users[0].isAdmin
