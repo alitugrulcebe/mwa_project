@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../environment/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class CityService {
   constructor(private http: HttpClient) { }
 
   getAllCities() {
-    return this.http.get('/protected/cities',this.httpOptions);
+    return this.http.get(environment.server + '/protected/cities',this.httpOptions);
   }
 
   getCityDetails(city) {
-    return this.http.post('/protected/cities',
+    return this.http.post(environment.server + '/protected/cities',
       JSON.stringify({city: city}),
       this.httpOptions);
   }

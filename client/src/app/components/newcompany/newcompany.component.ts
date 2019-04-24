@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, CompanyService } from '../../services';
+import {MatSnackBar} from "@angular/material";
 
 @Component({ templateUrl: './newcompanycomponent.html' })
 export class NewCompanyComponent implements OnInit {
@@ -15,18 +16,19 @@ export class NewCompanyComponent implements OnInit {
         private formBuilder: FormBuilder,
         private router: Router,
         private companyService: CompanyService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        private snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            companyName: ['', Validators.required],
+            name: ['', Validators.required],
             website: ['', Validators.required],
-            cRate: ['', Validators.required],
-            zipcode: ['', [Validators.required, Validators.minLength(5)]],
-            nemployees: ['', Validators.required],
-            avsalary: ['', Validators.required],
-            rent: ['', Validators.required],
-            cdescription: ['', Validators.required],
+            rating: ['', Validators.required],
+            location:['', Validators.required],
+            zipCode: ['', [Validators.required, Validators.minLength(5)]],
+            employeesNumber: ['', Validators.required],
+            companyAvgSalary: ['', Validators.required],
+            companyDesc: ['', Validators.required],
         });
     }
 
@@ -46,9 +48,11 @@ export class NewCompanyComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('New Company Created Succesfully', true);
+                    this.loading = false;
+                    //this.alertService.success('New Company Created Succesfully', true);
+                    this.snackBar.open("Login successful","Success",{duration:5000,direction:"ltr"});
                     //select the correct route
-                    this.router.navigate(['/login']);
+                    // this.router.navigate(['/']);
                 },
                 error => {
                     this.alertService.error(error);

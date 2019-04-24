@@ -18,25 +18,30 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   getAllCompanies() {
-    return this.http.get('/protected/companies',this.httpOptions);
+    return this.http.get(environment.server + '/protected/companies',this.httpOptions);
+  }
+
+  getCompaniesById(id) {
+    return this.http.post(environment.server + '/protected/companiesById',
+      JSON.stringify({id: id}),
+      this.httpOptions);
   }
 
   getCompaniesByLocation() {
-    debugger;
     return this.http.post(environment.server + '/protected/company',
       JSON.stringify({city: this.searchCity}),
       this.httpOptions);
   }
 
   register(company: Company) {
-    return this.http.post(`${environment.server}/companies/newcompany`, company);
+    return this.http.post(environment.server + '/protected/createCompany', JSON.stringify(company),this.httpOptions);
   }
 
   update(company: Company) {
-    return this.http.put(`${environment.server}/companies/` + company._id, company);
+    return this.http.put(environment.server + '/protected/companies/' + company._id, company);
   }
 
-  setSearchText(city: string[] | any | string) {
+  setSearchText(city: string) {
     this.searchCity = city;
   }
 

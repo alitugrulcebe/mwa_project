@@ -33,7 +33,8 @@ export class LoginComponentDialog {
     const email = this.myForm.value.userData.email;
     const password = this.myForm.value.userData.password;
     this.authService.login(email,password).subscribe(res => {
-      localStorage.setItem('userData',JSON.stringify({'username':res['username'],'token':res['token']}));
+      debugger;
+      localStorage.setItem('userData',JSON.stringify({'username':res['username'],'token':res['token'],'isAdmin':res['admin']}));
       this.authService.setLoggedIn(true);
       this.snackBar.open("Login successful","Success",{duration:5000,direction:"ltr"});
       this.dialogRef.close();

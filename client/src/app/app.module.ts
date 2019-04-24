@@ -41,7 +41,8 @@ import {AlertService} from "./services";
     NewCompanyComponent,
     CompanyListComponent,
     CompanyDetailComponent,
-    LivingDetailComponent
+    LivingDetailComponent,
+    NewCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +54,10 @@ import {AlertService} from "./services";
     FlexLayoutModule,
     RouterModule.forRoot([
       {path: '', component:HomeComponent},
-      { path: 'companylist', component: CompanyListComponent},
+      { path: 'companies', component: CompanyListComponent},
       { path: 'company/:id', component: CompanyDetailComponent },
-      { path: 'livingdetail/:id', component: LivingDetailComponent }
+      { path: 'livingdetail/:id', component: LivingDetailComponent },
+      { path: 'register', component: NewCompanyComponent }
     ]),
     LayoutModule,
   ],

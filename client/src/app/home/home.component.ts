@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit{
 
   current = 0;
   img_list = [
-    'https://picsum.photos/600/400/?image=0',
-    'https://picsum.photos/600/400/?image=1',
-    'https://picsum.photos/600/400/?image=2',
+    'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200',
+    'http://www.zeepod.io/wp-content/uploads/2018/02/LA.jpeg',
+    'https://www.nationalgeographic.com/content/dam/travel/Guide-Pages/north-america/seattle-travel.adapt.1900.1.jpg',
   ];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

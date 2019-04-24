@@ -1,14 +1,13 @@
 <mat-toolbar color="primary">
   <!--      </button>-->
-  <a [routerLink]="['/']" >RateMyCompany</a>
+  <a [routerLink]="['/']" >CompanySquare</a>
+
   <span class="fill-space"></span>
   <mat-menu #appMenu="matMenu" >
     <button mat-menu-item (click)="login()" *ngIf="!authService.isLoggedIn">Login </button>
     <button mat-menu-item (click)="register()" *ngIf="!authService.isLoggedIn">Register </button>
-    <button mat-menu-item (click)="cities()" *ngIf="authService.isLoggedIn">Cities </button>
-    <button mat-menu-item (click)="companies()" *ngIf="authService.isLoggedIn">Companies </button>
+    <button mat-menu-item [routerLink]="['/register']" *ngIf="authService.isAdmin">Create Company </button>
     <button mat-menu-item (click)="logout()" *ngIf="authService.isLoggedIn">Logout </button>
-    <button mat-menu-item>About</button>
   </mat-menu>
 
   <span *ngIf="authService.isLoggedIn">{{username}}</span>

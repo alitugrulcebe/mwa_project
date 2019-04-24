@@ -8,7 +8,7 @@ mat-form-field {
 }
 
 mat-card {
-  width: calc(100% - 200px);
+  width: calc(100% - 400px);
 
 }
 
@@ -56,3 +56,10 @@ table {
   max-height: 500px;
 }
 
+.mat-buton {
+  vertical-align: bottom;
+}
+
+.mat-card {
+  opacity: 0.6;
+}
