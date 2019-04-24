@@ -11,7 +11,10 @@
       Location: <b>{{dataSource.location}}</b>
     </p>
     <p>
-      Company Average Rate: <b>{{dataSource.rating}}</b>
+      Company Average Rate:
+      <ng-container *ngFor="let x of Arr(dataSource.rating).fill(0)">
+        <mat-icon>star</mat-icon>
+      </ng-container>
     </p>
 <!--    Rating for the company:-->
 <!--    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>-->

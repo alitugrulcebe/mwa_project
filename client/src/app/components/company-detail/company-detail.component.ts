@@ -44,7 +44,7 @@ export interface CompanyDetail {
 export class CompanyDetailComponent implements OnInit {
 
   dataSource: CompanyDetail = {} as CompanyDetail;
-
+  Arr = Array;
   selected = 0;
   hovered = 0;
   readonly = false;

@@ -27,7 +27,7 @@ export interface companySort {
 export class CompanyListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'website', 'location', 'rating'];
   dataSource = new MatTableDataSource();
-
+  Arr = Array;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('table') table: MatTable<CompanyElement>;
