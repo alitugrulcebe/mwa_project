@@ -1,0 +1,81 @@
+﻿<h2>Create New Company:</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="companyName">Company</label>
+        <input type="text" formControlName="companyName" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+        <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+            <div *ngIf="f.companyName.errors.required">Company Name is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="website">Website</label>
+        <input type="text" formControlName="website" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
+        <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
+            <div *ngIf="f.website.errors.required">Website is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" formControlName="location" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
+        <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+            <div *ngIf="f.location.errors.required">Location is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="cRate">Company Rate</label>
+        <input type="number" formControlName="cRate" min="0" max="10" step="1" value="10" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.cRate.errors }" />
+        <div *ngIf="submitted && f.cRate.errors" class="invalid-feedback">
+            <div *ngIf="f.cRate.errors.required">Company Rate is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="zipcode">ZipCode</label>
+        <input type="number" formControlName="zipcode" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" />
+        <div *ngIf="submitted && f.zipcode.errors" class="invalid-feedback">
+            <div *ngIf="f.zipcode.errors.required">ZipCode is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="nemployees">Number of Employees</label>
+        <input type="number" formControlName="nemployees" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.nemployees.errors }" />
+        <div *ngIf="submitted && f.nemployees.errors" class="invalid-feedback">
+            <div *ngIf="f.nemployees.errors.required">Number of Employees is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="avsalary">Average of Salary per year</label>
+        <input type="number" formControlName="avsalary" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.avsalary.errors }" />
+        <div *ngIf="submitted && f.avsalary.errors" class="invalid-feedback">
+            <div *ngIf="f.avsalary.errors.required">Average of Salary is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="rent">Monthly price of rent a house in that place</label>
+        <input type="number" formControlName="rent" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.rent.errors }" />
+        <div *ngIf="submitted && f.rent.errors" class="invalid-feedback">
+            <div *ngIf="f.rent.errors.required">Monthly price of rent is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="cdescription">Company Description</label>
+        <input type="text" formControlName="cdescription" class="form-control" />
+        <!-- [ngClass]="{ 'is-invalid': submitted && f.cdescription.errors }" />
+        <div *ngIf="submitted && f.cdescription.errors" class="invalid-feedback">
+            <div *ngIf="f.cdescription.errors.required">MCompany Description is required</div>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Create Company</button>
+        <img *ngIf="loading"
+            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+    </div>
+</form>
