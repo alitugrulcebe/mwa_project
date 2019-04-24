@@ -98,6 +98,14 @@ app.get('/cities', function (req, res, next) {
     });
 });
 
+app.post('/cities', function (req, res, next) {
+  City.find({'name':req.body.city})
+    .exec()
+    .then(cities => {
+      res.status(201).json(cities);
+    });
+});
+
 app.post('/company', function (req, res) {
   Company.find({'location':req.body.city})//.select('+_id')
     .exec()
@@ -112,6 +120,38 @@ app.post('/company', function (req, res) {
 
 app.get('/companies', function (req, res) {
   Company.find({})
+    .exec()
+    .then(companies => {
+      res.status(201).json(companies);
+    }).catch(err => {
+    res.status(500).json({
+      error: err
+    })
+  });
+});
+
+app.post('/createCompany', function (req, res) {
+  let company = new Company({
+    name: req.body.name,
+    website: req.body.website,
+    location: req.body.location,
+    rating: req.body.rating,
+    zipCode:req.body.zipCode,
+    employeesNumber:req.body.employeesNumber,
+    companyAvgSalary:req.body.companyAvgSalary,
+    companyDesc: req.body.companyDesc
+  });
+
+  company.save(function (err) {
+    if (err) throw err;
+
+    console.log('Company saved successfully');
+    res.json({success: true});
+  });
+});
+
+app.post('/companiesbyid', function (req, res) {
+  Company.findOne({_id:req.body.id})
     .exec()
     .then(companies => {
       res.status(201).json(companies);

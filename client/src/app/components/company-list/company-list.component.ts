@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CompanyService} from "../../services";
-import {DataSource} from "@angular/cdk/table";
-import {Observable} from "rxjs";
-import {Company} from "../../models";
+import {MatSort, MatTable, MatTableDataSource} from "@angular/material";
+
 
 export interface CompanyElement {
   _id: number;
@@ -12,23 +11,12 @@ export interface CompanyElement {
   rating: number;
 }
 
+let ELEMENT_DATA: CompanyElement[] = [];
+
 export interface companySort {
   value: string;
   viewValue: string;
 }
-
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {companyId: 1,companyName: 'Facebook', companyWebsite: 'www.facebook.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 2,companyName: 'Google', companyWebsite: 'www.google.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 3,companyName: 'Amazon', companyWebsite: 'www.amazon.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 4,companyName: 'MicroSoft', companyWebsite: 'www.microsoft.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 5,companyName: 'Tencent', companyWebsite: 'www.tencent.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 6,companyName: 'Huawei', companyWebsite: 'www.huawei.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 7,companyName: 'Alibaba', companyWebsite: 'www.alibaba.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 8,companyName: 'Linkedin', companyWebsite: 'www.linkedin.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 9,companyName: 'Oracle', companyWebsite: 'www.oracle.com', companyLoc: 'LA', companyRate: 5},
-//   {companyId: 10,companyName: 'Intel', companyWebsite: 'www.intel.com', companyLoc: 'LA', companyRate: 5},
-// ];
 
 @Component({
   selector: 'app-company-list',
@@ -37,32 +25,36 @@ export interface companySort {
 })
 
 export class CompanyListComponent implements OnInit {
-  displayedColumns: string[] = ['companyName', 'companyWebsite', 'companyLoc', 'companyRate'];
-  private dataSource:any[];
+  displayedColumns: string[] = ['name', 'website', 'location', 'rating'];
+  dataSource = new MatTableDataSource();
+  Arr = Array;
 
-  companySorts: companySort[] = [
-    {value: 'company-Rate', viewValue: 'company Rate'},
-    {value: 'company-Location', viewValue: 'company Location'}
-  ]
-
-  clickSort(companySort: String){
-    console.log(companySort)
-  }
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild('table') table: MatTable<CompanyElement>;
 
   constructor(private companyService:CompanyService) {
-
+    console.log(ELEMENT_DATA);
   }
 
   ngOnInit() {
     this.companyService.getCompaniesByLocation().subscribe(res => {
-      debugger;
-      console.log(res);
-      var dataArray = new Array;
-      for(var o in res) {
-        dataArray.push(res[o]);
+      ELEMENT_DATA = [];
+      for(var o in Object.keys(res)) {
+        let x :CompanyElement = {
+          _id: res[o]['_id'],
+          name: res[o]['name'],
+          website: res[o]['website'],
+          location: res[o]['location'],
+          rating:res[o]['rating']};
+        ELEMENT_DATA.push(x);
       }
-      this.dataSource = dataArray;
+      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+      this.dataSource.sort = this.sort;
+      this.table.renderRows();
     });
   }
 
+  getRecord(objname: any) {
+    console.log(objname)
+  }
 }

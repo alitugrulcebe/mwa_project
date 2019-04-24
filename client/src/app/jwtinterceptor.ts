@@ -8,7 +8,6 @@ import {Observable} from "rxjs";
 })
 export class JWTInterceptor implements HttpInterceptor{
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
     const user = localStorage.getItem('userData');
     let token = undefined;
     if(user !== null)

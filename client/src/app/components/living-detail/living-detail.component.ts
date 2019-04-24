@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {CityService} from "../../services/city.service";
+import {CompanyDetail} from "../company-detail/company-detail.component";
 
 export interface LivingDetail {
   cityName: String;
   stateName: String;
-  contryName: String;
+  countryName: String;
   zipCode: number;
   restaurants: Item[];
   markets: Item[];
@@ -21,7 +23,7 @@ export interface Item {
 const DATA: LivingDetail = {
   cityName: 'IOWA CITY',
   stateName: 'IOWA',
-  contryName: 'USA',
+  countryName: 'USA',
   zipCode: 53223,
   restaurants: [
     {name: 'Meal, Inexpensive Restaurant', price: '11.00 $'},
@@ -62,17 +64,31 @@ const DATA: LivingDetail = {
 export class LivingDetailComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'price'];
-  dataSource = DATA;
+  dataSource : LivingDetail = {} as LivingDetail;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,private cityService:CityService) { }
 
   ngOnInit() {
     this.getLivingDetail() 
   }
 
   getLivingDetail() {
-    const companyId = this.route.snapshot.paramMap.get('id');
-    console.log('CompanyId:' + companyId)
+    const cityName = this.route.snapshot.paramMap.get('id');
+    this.cityService.getCityDetails(cityName).subscribe(res => {
+      let x: LivingDetail = {
+        cityName: res[0]['name'],
+        stateName: res[0]['state'],
+        countryName: res[0]['country'],
+        zipCode: res[0]['zipCode'],
+        restaurants: res[0]['restaurants'],
+        markets: res[0]['markets'],
+        rentPerMonth: res[0]['rentPerMonth'],
+        buyApartmentPrice: res[0]['buyApartmentPrice'],
+        salariesAndFinancing: res[0]['salaries']
+      };
+      this.dataSource = x;
+    });
+    console.log('CompanyId:' + cityName)
   }
 
 }

@@ -1,18 +1,22 @@
 <app-header></app-header>
 <div style="padding: 30px;">
+  <mat-card>
+
+    <h2>{{dataSource.name}}</h2>
+
     <p>
-        {{dataSource.companyName}}
+      Website: <b>{{dataSource.website}}</b>
     </p>
     <p>
-        Website: {{dataSource.companyWebsite}}
+      Location: <b>{{dataSource.location}}</b>
     </p>
     <p>
-        Location: {{dataSource.companyLoc}}
+      Company Average Rate:
+      <ng-container *ngFor="let x of Arr(dataSource.rating).fill(0)">
+        <mat-icon>star</mat-icon>
+      </ng-container>
     </p>
-    <p>
-        company Average Rate: {{dataSource.companyRate}}
-    </p>
-    Rating for the company:
+<!--    Rating for the company:-->
 <!--    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>-->
     <hr>
     <!-- <pre>
@@ -20,21 +24,20 @@
   Hovered: <b>{{hovered}}</b>
 </pre> -->
     <p>
-        ZipCode: {{dataSource.companyZipCode}}
+      ZipCode: <b>{{dataSource.zipCode}}</b>
     </p>
     <p>
-        Number of Employees: {{dataSource.companyEmployeesNum}}
+      Number of Employees: <b>{{dataSource.employeesNumber}}</b>
     </p>
     <p>
-        Average Salary: {{dataSource.companyAvgSalary}}
+      Average Salary: <b>{{dataSource.companyAvgSalary}}</b>
     </p>
     <p>
-        Price of rent a house{{dataSource.companyRentHousePrice}}
+      Company Description: <b>{{dataSource.companyDesc}}</b>
     </p>
     <p>
-        <button mat-raised-button [routerLink]="['/livingdetail', dataSource.companyId]">Detail Cost of Living!</button>
+        <button mat-raised-button [routerLink]="['/livingdetail', dataSource.location]">Detail Cost of Living!</button>
     </p>
-    <p>
-        company Description: {{dataSource.companyDesc}}
-    </p>
+
+  </mat-card>
 </div>

@@ -22,7 +22,7 @@ var validateRequest = (req, res,next) => {
       req.lab8 = req.body;
       next();
     }
-  }
+  } 
 }
 
 app.set('superSecret', process.env.JWT_KEY); // secret variable
