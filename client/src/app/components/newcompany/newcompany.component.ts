@@ -50,7 +50,7 @@ export class NewCompanyComponent implements OnInit {
                 data => {
                     this.loading = false;
                     //this.alertService.success('New Company Created Succesfully', true);
-                    this.snackBar.open("Login successful","Success",{duration:5000,direction:"ltr"});
+                    this.snackBar.open("Company Created Successfully","Success",{duration:5000,direction:"ltr"});
                     //select the correct route
                     // this.router.navigate(['/']);
                 },

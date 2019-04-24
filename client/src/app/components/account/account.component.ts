@@ -45,20 +45,18 @@ export class AccountComponent implements OnInit {
       this.userService.update({
         'id':JSON.parse(localStorage.getItem('userData')).id,
         'firstname':this.myForm.value.firstname,
-        'lastName':this.myForm.value.firstname,
-        'email':this.myForm.value.firstname
+        'lastName':this.myForm.value.lastname,
+        'email':this.myForm.value.email
       }).subscribe(res => {
-        console.log(res);
+        let local = JSON.parse(localStorage.getItem('userData'));
+        local['username'] = res['firstname'] + " " + res['lastname'];
+        localStorage.setItem('userData',JSON.stringify(local));
+        this.dialogRef.close();
       });
   }
 
   deleteUser() {
-    this.userService.delete({
-      'id':JSON.parse(localStorage.getItem('userData')).id,
-      'firstname':this.myForm.value.firstname,
-      'lastName':this.myForm.value.firstname,
-      'email':this.myForm.value.firstname
-    }).subscribe(res => {
+    this.userService.delete(JSON.parse(localStorage.getItem('userData')).id).subscribe(res => {
       console.log(res);
       this.authService.logout();
       this.dialogRef.close();

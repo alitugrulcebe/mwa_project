@@ -22,11 +22,10 @@ export class UserService {
 
   update(user) {
     return this.http.put(environment.server + '/protected/user/',JSON.stringify(user),this.httpOptions);
-    
   }
 
-  delete(user) {
-    return this.http.delete(environment.server + '/protected/users/' + user.id);
+  delete(id) {
+    return this.http.delete(environment.server + '/protected/users/' + id);
   }
 
 }

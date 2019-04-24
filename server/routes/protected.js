@@ -180,7 +180,7 @@ app.put('/user/', function (req, res) {
     .exec()
     .then(user => {
       user.firstname = req.body.firstname;
-      user.lastname = req.body.lastname;
+      user.lastname = req.body.lastName;
       user.emai = req.body.email;
       user.save();
       res.status(201).json(user);
