@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material";
 import {LoginComponentDialog} from "../login/login.component.dialog";
 import {RegisterComponentDialog} from "../register/register.component.dialog";
 import {AuthService} from "../../services/auth.service";
+import {AccountComponent} from "../account/account.component";
 
 
 @Component({
@@ -50,5 +51,13 @@ export class HeaderComponent implements OnInit {
       return JSON.parse(localStorage.getItem("userData")).username;
     }
     return '';
+  }
+
+  account() {
+    const dialogRef = this.dialog.open(AccountComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

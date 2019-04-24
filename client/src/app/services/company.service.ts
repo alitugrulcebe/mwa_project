@@ -22,9 +22,7 @@ export class CompanyService {
   }
 
   getCompaniesById(id) {
-    return this.http.post(environment.server + '/protected/companiesById',
-      JSON.stringify({id: id}),
-      this.httpOptions);
+    return this.http.get(environment.server + '/protected/companies/' + id);
   }
 
   getCompaniesByLocation() {

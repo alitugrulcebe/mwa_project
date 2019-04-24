@@ -53,7 +53,8 @@ export class AuthService {
     if(localStorage.getItem("userData") !== null) {
       const isAdmin = JSON.parse(localStorage.getItem("userData")).isAdmin;
       if(isAdmin !== undefined) {
-        return true;
+        if(isAdmin === true)
+          return true;
       } else {
         return false;
       }

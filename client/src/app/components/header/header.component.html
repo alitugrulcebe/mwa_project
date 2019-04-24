@@ -6,6 +6,7 @@
   <mat-menu #appMenu="matMenu" >
     <button mat-menu-item (click)="login()" *ngIf="!authService.isLoggedIn">Login </button>
     <button mat-menu-item (click)="register()" *ngIf="!authService.isLoggedIn">Register </button>
+    <button mat-menu-item (click)="account()"*ngIf="authService.isLoggedIn">Account </button>
     <button mat-menu-item [routerLink]="['/register']" *ngIf="authService.isAdmin">Create Company </button>
     <button mat-menu-item (click)="logout()" *ngIf="authService.isLoggedIn">Logout </button>
   </mat-menu>
