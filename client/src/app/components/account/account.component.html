@@ -1,0 +1,26 @@
+<form [formGroup]="myForm" >
+  <div class="signup-form">
+    <h2>Update User</h2>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6"><input type="text" class="form-control" name="first_name"
+                                     required="required" formControlName="firstname"></div>
+        <div class="col-xs-6"><input type="text" class="form-control" name="last_name"
+                                     required="required" formControlName="lastname"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" required="required" formControlName="email">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="btn btn-success btn-lg btn-block" (click)="updateUser()">Update</button>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-danger btn-lg btn-block" (click)="deleteUser()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

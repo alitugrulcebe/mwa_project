@@ -5,11 +5,10 @@ var Schema = mongoose.Schema;
 var arraySchema = new Schema({ name: String, price:String });
 // set up a mongoose model and pass it using module.exports
 module.exports = mongoose.model('City', new Schema({
-  _id:{type:mongoose.Schema.ObjectId},
   name: String,
   state: String,
   country: String,
-  zip: Number,
+  zipCode: Number,
   restaurants:[arraySchema],
   markets:[arraySchema],
   rentPerMonth:[arraySchema],

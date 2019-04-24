@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../environment/environment";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +15,18 @@ export class AuthService {
     })
   };
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient,private router:Router) {}
 
   login(email, password) {
     return this.http.post(environment.server + '/user/login',
       JSON.stringify({email: email, password: password}),
       this.httpOptions);
-
   }
 
   logout() {
     localStorage.removeItem('userData');
     this.authenticated = false;
+    this.router.navigate(['/']);
   }
 
   register(user) {
@@ -47,5 +47,18 @@ export class AuthService {
       }
     }
     return this.authenticated;
+  }
+
+  get isAdmin(): boolean {
+    if(localStorage.getItem("userData") !== null) {
+      const isAdmin = JSON.parse(localStorage.getItem("userData")).isAdmin;
+      if(isAdmin !== undefined) {
+        if(isAdmin === true)
+          return true;
+      } else {
+        return false;
+      }
+    }
+    return false;
   }
 }

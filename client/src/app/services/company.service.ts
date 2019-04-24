@@ -1,27 +1,49 @@
-﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Company} from "../models";
+import {environment} from "../environment/environment";
+import {Observable} from "rxjs";
 
-import { Company } from '../models';
-import { environment } from '../environment/environment';
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CompanyService {
-    constructor(private http: HttpClient) { }
+  private searchCity:string;
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-    getAll() {
-        return this.http.get<Company[]>(`${environment.server}/companies`);
-    }
+  constructor(private http: HttpClient) { }
 
-    getById(id: number) {
-        return this.http.get(`${environment.server}/companies/` + id);
-    }
+  getAllCompanies() {
+    return this.http.get(environment.server + '/protected/companies',this.httpOptions);
+  }
 
-    register(company: Company) {
-        return this.http.post(`${environment.server}/companies/newcompany`, company);
-    }
+  getCompaniesById(id) {
+    return this.http.get(environment.server + '/protected/companies/' + id);
+  }
 
-    update(company: Company) {
-        return this.http.put(`${environment.server}/companies/` + company.id, company);
-    }
+  getCompaniesByLocation() {
+    return this.http.post(environment.server + '/protected/company',
+      JSON.stringify({city: this.searchCity}),
+      this.httpOptions);
+  }
 
+  register(company: Company) {
+    return this.http.post(environment.server + '/protected/createCompany', JSON.stringify(company),this.httpOptions);
+  }
+
+  update(company: Company) {
+    return this.http.put(environment.server + '/protected/companies/' + company._id, company);
+  }
+
+  setSearchText(city: string) {
+    this.searchCity = city;
+  }
+
+  get search(): string {
+    return this.searchCity;
+  }
 }

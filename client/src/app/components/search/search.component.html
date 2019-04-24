@@ -1,16 +1,51 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-<div fxLayoutAlign="center center">
-  <mat-card class="example-card">
-    <mat-card-header fxLayoutAlign="center">
-      <h1 class="mat-display-1">Search Companies in Cities</h1>
-    </mat-card-header>
-    <!--    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-    <mat-card-content fxLayoutGap="20px">
+  <!--  <div class="form-group">-->
+  <!--    <div fxLayoutAlign="center center">-->
+  <!--      <mat-card class="centered">-->
+  <!--        <mat-card-header fxLayoutAlign="center">-->
+  <!--          <h1 class="mat-display-1">Search Companies in Cities</h1>-->
+  <!--        </mat-card-header>-->
+  <!--        <div class="row">-->
+  <!--          <div class="col-xs-10">-->
+  <!--            <div class="form-group">-->
+  <!--              <input type="text" class="form-control" placeholder="Los Angeles,New York,Seattle" required="required"-->
+  <!--                     formControlName="city">-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--          <div class="col-xs-2">-->
+  <!--            <div class="form-group">-->
+  <!--              <button type="submit" class="btn btn-primary btn-block" style="size: 20px">Log in</button>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </mat-card>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <div class="form-group">
+    <mat-card class="centered" fxLayoutAlign="right" fxLayoutGap="10px">
       <mat-form-field>
-        <input matInput  placeholder="City" formControlName="city">
+        <input matInput placeholder="Los Angeles,New York,Seattle" required="required" formControlName="city">
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">Search</button>
-    </mat-card-content>
-  </mat-card>
-</div>
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+
+      <!--      <div class="example-container mat-elevation-z8">-->
+      <!--        <div>-->
+      <!--          <div class="row">-->
+      <!--            <div class="col-xs-10">-->
+      <!--              <mat-form-field>-->
+      <!--                <input matInput placeholder="Los Angeles,New York,Seattle" required="required" formControlName="city">-->
+      <!--              </mat-form-field>-->
+      <!--            </div>-->
+      <!--            <div class="col-xs-2">-->
+      <!--&lt;!&ndash;              <mat-form-field>&ndash;&gt;-->
+      <!--                <button mat-button type="submit" mat-raised-button color="primary">Search</button>-->
+      <!--&lt;!&ndash;              </mat-form-field>&ndash;&gt;-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </mat-card>
+  </div>
 </form>

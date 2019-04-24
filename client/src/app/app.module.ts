@@ -18,6 +18,17 @@ import { AuthService } from "./services/auth.service";
 import { SearchComponent } from './components/search/search.component';
 
 
+import { CompanyDetailComponent } from './components/company-detail/company-detail.component';
+import { LivingDetailComponent } from './components/living-detail/living-detail.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
+
+
+import { CompanyService } from "./services/company.service";
+import { CityService } from "./services/city.service";
+import { NewCompanyComponent } from "./components/newcompany";
+import { AlertService } from "./services";
+import { AccountComponent } from './components/account/account.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +38,13 @@ import { SearchComponent } from './components/search/search.component';
     LoginComponentDialog,
     RegisterComponentDialog,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    NewCompanyComponent,
+    CompanyListComponent,
+    CompanyDetailComponent,
+    LivingDetailComponent,
+    NewCompanyComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -38,12 +55,16 @@ import { SearchComponent } from './components/search/search.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'companies', component: CompanyListComponent },
+      { path: 'company/:id', component: CompanyDetailComponent },
+      { path: 'livingdetail/:id', component: LivingDetailComponent },
+      { path: 'register', component: NewCompanyComponent },
     ]),
     LayoutModule,
   ],
-  entryComponents: [LoginComponentDialog, RegisterComponentDialog],
-  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true }],
+  entryComponents: [LoginComponentDialog, RegisterComponentDialog, AccountComponent],
+  providers: [AuthService, CompanyService, CityService, AlertService, { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 

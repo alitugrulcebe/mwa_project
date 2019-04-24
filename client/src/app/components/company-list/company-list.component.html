@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div style="padding: 30px;">
+  <mat-card>
+    <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+        <h2 fxLayoutAlign="center">Companies</h2>
+      </div>
+      <mat-table #table [dataSource]="dataSource" matSort>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Website Column -->
+        <ng-container matColumnDef="website">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Website</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.website}} </mat-cell>
+        </ng-container>
+
+        <!-- Location Column -->
+        <ng-container matColumnDef="location">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Location</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+        </ng-container>
+
+        <!-- Rating Column -->
+        <ng-container matColumnDef="rating">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Rating</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <ng-container *ngFor="let x of Arr(element.rating).fill(0)">
+              <mat-icon>star</mat-icon>
+            </ng-container>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row (click)="getRecord(row)" *matRowDef="let row; columns: displayedColumns;"
+                 [routerLink]="['/company',row._id]"></mat-row>
+      </mat-table>
+
+
+    </div>
+  </mat-card>
+</div>
